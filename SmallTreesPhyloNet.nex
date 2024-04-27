@@ -1,0 +1,12 @@
+#NEXUS
+
+BEGIN TREES;
+
+Tree gt1 = (A,B);
+Tree gt2 = (A,B);
+
+END;
+
+BEGIN PHYLONET;
+MCMC_GT (gt1-gt2) -mr 2 -cl 1100 -bl 100 -sf 100 -pp 1000 -pl 8 -sd 4321;
+END;
