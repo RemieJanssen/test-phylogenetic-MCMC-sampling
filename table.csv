@@ -1,0 +1,13 @@
+,index,retics,balance,blob_sizes,leaf_under_reticulation_list,leaf_with_sibling_retic_list,leaf_on_side_of_triangle_list
+0,0,0,1.0,[],None,None,False
+1,1,1,0.8112781244591328,[3],A,B,True
+2,2,2,0.5435644431995964,[5],A,B,False
+3,3,2,0.5435644431995964,[5],A,B,False
+4,4,2,0.8112781244591328,[5],B,None,False
+5,5,2,1.0,[4],A,None,False
+6,6,2,0.9544340029249649,[5],B,None,False
+7,7,2,1.0,[4],None,None,False
+8,8,2,1.0,[4],None,None,False
+9,9,2,1.0,[4],None,None,False
+10,10,2,1.0,[4],A,None,False
+11,11,2,0.9544340029249649,[5],B,None,False
