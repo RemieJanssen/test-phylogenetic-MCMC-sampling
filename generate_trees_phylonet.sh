@@ -2,9 +2,16 @@ set -x
 
 # PHYLONET_PATH=~/Documents/Studie/PhD/Software/PhyloNet/PhyloNet_3.7.3.jar
 PHYLONET_PATH=~/PhyloNet/PhyloNet_3.8.2.jar
-NEXUS_FILE="./SmallTreesPhyloNet.nex"
 OUTPUT="phylonet_generated_networks.out"
 ERROR="phylonet_generated_networks.out"
+
+
+NEXUS_FILE="./mcmc_gene_trees.nex"
+TABLE_OUT="table_gene_trees.csv"
+
+# NEXUS_FILE="./mcmc_sequence.nex"
+# TABLE_OUT="table_sequence.csv"
+
 
 java -jar $PHYLONET_PATH $NEXUS_FILE > $OUTPUT >> $ERROR
 
@@ -28,4 +35,4 @@ cat $OUTPUT.clipped | tr -d " "  > $OUTPUT.clipped_buff
 mv $OUTPUT.clipped_buff $OUTPUT.clipped
 
 # Analyse all networks
-python phylonet_properties.py -f $OUTPUT.clipped -o ./table.csv
+python phylonet_properties.py -f $OUTPUT.clipped -o $TABLE_OUT

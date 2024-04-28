@@ -112,7 +112,7 @@ def main():
         data["index"] += [index]
         data["retics"] += [network.reticulation_number]
         data["balance"] += [b2_balance(network)]
-        data["blob_sizes"] += [sorted([blob[0] for blob in blob_properties(network)])]
+        data["blob_sizes"] += [str(sorted([blob[0] for blob in blob_properties(network)]))]
         if (leaf := leaf_under_reticulation(network)) is not None:
             data["leaf_under_reticulation_list"] += [network.nodes[leaf].get(LABEL_ATTR, "noLabel")]
         else:
@@ -128,6 +128,12 @@ def main():
     network_properties = pd.DataFrame(data)
     print(network_properties)
     network_properties.to_csv(args.output)
+
+    groupy_columns = network_properties.columns.tolist()
+    groupy_columns.remove("index")
+    counts = network_properties.groupby(groupy_columns,as_index=False).size()
+    print(counts)
+
 
 if __name__ == "__main__":
     main()
