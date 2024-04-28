@@ -131,8 +131,7 @@ def main():
     print(network_properties)
     network_properties.to_csv(args.output)
 
-    groupy_columns = network_properties.columns.tolist()
-    groupy_columns.remove("index")
+    groupy_columns = ["retics","balance","blob_sizes","leaf_under_reticulation_list","leaf_with_sibling_retic_list","leaf_on_side_of_triangle_list"]
     counts = network_properties.groupby(groupy_columns,as_index=False) \
         .agg({'index':'size', 'posterior_probability':'mean'}) \
         .rename(columns={'index':'count','posterior_probability':'mean_posterior_probability'}) \
