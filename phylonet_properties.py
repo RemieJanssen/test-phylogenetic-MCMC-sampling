@@ -126,14 +126,20 @@ def main():
         data["leaf_on_side_of_triangle_list"] += [leaf_on_side_of_triangle(network)]
 
     network_properties = pd.DataFrame(data)
+    network_properties = network_properties.join(phylonet_output)
+    network_properties["posterior_probability"] = network_properties["Posterior"].apply(lambda x: 2**x)
     print(network_properties)
     network_properties.to_csv(args.output)
 
     groupy_columns = network_properties.columns.tolist()
     groupy_columns.remove("index")
-    counts = network_properties.groupby(groupy_columns,as_index=False).size()
+    counts = network_properties.groupby(groupy_columns,as_index=False) \
+        .agg({'index':'size', 'posterior_probability':'mean'}) \
+        .rename(columns={'index':'count','posterior_probability':'mean_posterior_probability'}) \
+        .reset_index()
     print(counts)
 
+    counts.to_csv(f"{args.output}.counts")
 
 if __name__ == "__main__":
     main()

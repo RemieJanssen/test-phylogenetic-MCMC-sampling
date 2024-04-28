@@ -6,11 +6,11 @@ OUTPUT="phylonet_generated_networks.out"
 ERROR="phylonet_generated_networks.out"
 
 
-NEXUS_FILE="./mcmc_gene_trees.nex"
-TABLE_OUT="table_gene_trees.csv"
+# NEXUS_FILE="./mcmc_gene_trees.nex"
+# TABLE_OUT="table_gene_trees.csv"
 
-# NEXUS_FILE="./mcmc_sequence.nex"
-# TABLE_OUT="table_sequence.csv"
+NEXUS_FILE="./mcmc_sequence.nex"
+TABLE_OUT="table_sequence.csv"
 
 
 java -jar $PHYLONET_PATH $NEXUS_FILE > $OUTPUT >> $ERROR

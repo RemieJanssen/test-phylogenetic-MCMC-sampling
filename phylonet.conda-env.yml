@@ -5,18 +5,30 @@ channels:
 dependencies:
   - _libgcc_mutex=0.1=main
   - _openmp_mutex=5.1=1_gnu
+  - beagle-lib=3.1.2=h9f5acd7_4
   - bzip2=1.0.8=h5eee18b_5
   - ca-certificates=2024.3.11=h06a4308_0
+  - dbus=1.13.18=hb2f20db_0
   - expat=2.6.2=h6a678d5_0
+  - freetype=2.12.1=h4a9f257_0
+  - glib=2.78.4=h6a678d5_0
+  - glib-tools=2.78.4=h6a678d5_0
   - java-jdk=8.0.92=1
   - ld_impl_linux-64=2.38=h1181459_1
   - libffi=3.4.4=h6a678d5_0
   - libgcc-ng=11.2.0=h1234567_1
+  - libglib=2.78.4=hdc74915_0
   - libgomp=11.2.0=h1234567_1
+  - libiconv=1.16=h7f8727e_2
+  - libpng=1.6.39=h5eee18b_0
   - libstdcxx-ng=11.2.0=h1234567_1
+  - libtool=2.4.6=h6a678d5_1009
   - libuuid=1.41.5=h5eee18b_0
+  - libxcb=1.15=h7f8727e_0
   - ncurses=6.4=h6a678d5_0
+  - openjdk=11.0.13=h87a67e3_0
   - openssl=3.0.13=h7f8727e_0
+  - pcre2=10.42=hebb0a14_0
   - pip=23.3.1=py312h06a4308_0
   - python=3.12.3=h996f2a0_0
   - readline=8.2=h5eee18b_0
