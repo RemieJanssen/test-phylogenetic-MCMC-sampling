@@ -8,5 +8,5 @@ Tree gt2 = (A,B);
 END;
 
 BEGIN PHYLONET;
-MCMC_GT (gt1-gt2) -mr 2 -cl 10005000 -bl 5000 -sf 5000 -pp 1000 -pl 8 -sd 4321;
+MCMC_GT (gt1-gt2) -mr 2 -cl 10000500 -bl 500 -sf 500 -pp 1000 -pl 8 -sd 4321;
 END;

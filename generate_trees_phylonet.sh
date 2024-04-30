@@ -2,18 +2,22 @@ set -x
 
 # PHYLONET_PATH=~/Documents/Studie/PhD/Software/PhyloNet/PhyloNet_3.7.3.jar
 PHYLONET_PATH=~/PhyloNet/PhyloNet_3.8.2.jar
-OUTPUT="phylonet_generated_networks.out"
-ERROR="phylonet_generated_networks.out"
-
 
 NEXUS_FILE="./mcmc_gene_trees.nex"
-TABLE_OUT="table_gene_trees.csv"
-
 # NEXUS_FILE="./mcmc_sequence.nex"
-# TABLE_OUT="table_sequence.csv"
 
 
-java -jar $PHYLONET_PATH $NEXUS_FILE > $OUTPUT >> $ERROR
+OUTPUT_FILENAME="phylonet_generated_networks.out"
+ERROR_FILENAME="phylonet_generated_networks.err"
+TABLE_OUT_FILENAME="table_gene_trees.csv"
+
+OUTPUT=${NEXUS_FILE}.output/$OUTPUT_FILENAME
+ERROR=${NEXUS_FILE}.output/$ERROR_FILENAME
+TABLE_OUT=${NEXUS_FILE}.output/$TABLE_OUT_FILENAME
+
+mkdir ${NEXUS_FILE}.output
+
+java -jar $PHYLONET_PATH $NEXUS_FILE > $OUTPUT 2> $ERROR
 
 # Clip the phylonet output to the output table:
 # remove the first lines with info and everything after the summary line
