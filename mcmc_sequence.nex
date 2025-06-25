@@ -1,13 +1,14 @@
 #NEXUS
 Begin data;
-    Dimensions ntax=2 nchar=4;
+    Dimensions ntax=3 nchar=1;
     Format datatype=dna symbols="ACTG" missing=? gap=-;
     Matrix
-[0, 4]
-A ACTG
-B ACTG
+[0, 1]
+A A
+B C
+C G
 ;End;
 
 BEGIN PHYLONET;
-MCMC_SEQ -cl 5000 -bl 500 -sf 500 -dd -pp 1 -pl 8;
+MCMC_SEQ -pl 8 -pp 10 -mr 2 -cl 10005000 -bl 5000 -sf 1000 -sd 4321 -dd;
 END;

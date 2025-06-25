@@ -1,0 +1,1 @@
+ERROR: ld.so: object '/usr/$LIB/libctxXrandrhook.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
