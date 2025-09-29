@@ -1,0 +1,19 @@
+,index,retics,balance,blob_sizes,leaf_under_reticulation_list,leaf_with_sibling_retic_list,leaf_on_side_of_triangle_list,reticulated_cherries,has_leaf_on_bottom_of_triangle,count
+0,0,2,0.5435644431995964,[5],['A'],B,False,0,None,549
+1,1,2,0.5435644431995964,[5],['A'],B,False,1,None,558
+2,2,2,0.5435644431995964,[5],['A'],B,True,0,None,615
+3,3,2,0.5435644431995964,[5],['B'],A,False,0,None,530
+4,4,2,0.5435644431995964,[5],['B'],A,False,1,None,582
+5,5,2,0.5435644431995964,[5],['B'],A,True,0,None,585
+6,6,2,0.8112781244591328,[5],['A'],B,False,0,A,592
+7,7,2,0.8112781244591328,[5],['A'],None,False,0,A,591
+8,8,2,0.8112781244591328,[5],['B'],A,False,0,B,569
+9,9,2,0.8112781244591328,[5],['B'],None,False,0,B,563
+10,10,2,0.9544340029249649,[5],"['A', 'B']",None,False,0,A,585
+11,11,2,0.9544340029249649,[5],"['A', 'B']",None,False,0,B,585
+12,12,2,0.9544340029249649,[5],['A'],B,False,1,None,587
+13,13,2,0.9544340029249649,[5],['B'],A,False,1,None,575
+14,14,2,1.0,[4],['A'],None,False,0,A,547
+15,15,2,1.0,[4],['B'],None,False,0,B,565
+16,16,2,1.0,[4],[],None,False,0,None,567
+17,17,2,1.0,[5],"['A', 'B']",None,False,0,None,255

@@ -1,9 +1,12 @@
 import pandas as pd
 import argparse
 
-from phylox import DiNetwork
+from phylox import DiNetwork, LABEL_ATTR
+from phylox.generators.heath.heath import restrict_network_to_leaf_set
 
-from .network_properties import leaves_under_reticulation, has_leaf_on_bottom_of_triangle, leaf_with_sibling_retic, leaf_on_side_of_triangle, b2_balance, blob_properties, count_reducible_pairs
+from network_properties import leaves_under_reticulation, has_leaf_on_bottom_of_triangle, leaf_with_sibling_retic, leaf_on_side_of_triangle, b2_balance, blob_properties, count_reducible_pairs
+
+
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -56,6 +59,9 @@ def main():
         print(index)
         newick = row["Newick"]
         network = DiNetwork.from_newick(newick)
+        if len(network.leaves) > 2:
+            restrict_network_to_leaf_set(network, [v for v in network.leaves if network.nodes[v].get(LABEL_ATTR) in ["A", "B"]])
+            network._clear_cached()
 
         data["index"] += [index]
         data["retics"] += [network.reticulation_number]
