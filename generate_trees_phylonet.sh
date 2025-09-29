@@ -6,22 +6,23 @@ PHYLONET_PATH=~/PhyloNet/PhyloNet_3.8.2.jar
 # NEXUS_FILE="./mcmc_gene_trees.nex"
 # NEXUS_FILE="./mcmc_gene_trees_large_sample.nex"
 # NEXUS_FILE="./mcmc_gene_trees_large_sample_pseudo.nex"
-NEXUS_FILE="./mcmc_sequence.nex"
+NEXUS_FILE="mcmc_sequence.nex"
 
+PHYLONET_RESULTS_PATH="./phylonet"
 
 OUTPUT_FILENAME="phylonet_generated_networks.out"
 ERROR_FILENAME="phylonet_generated_networks.err"
 TABLE_OUT_FILENAME="table_gene_trees2.csv"
 
-OUTPUT=${NEXUS_FILE}.output/$OUTPUT_FILENAME
-ERROR=${NEXUS_FILE}.output/$ERROR_FILENAME
-TABLE_OUT=${NEXUS_FILE}.output/$TABLE_OUT_FILENAME
+OUTPUT=${PHYLONET_RESULTS_PATH}/${NEXUS_FILE}.output/$OUTPUT_FILENAME
+ERROR=${PHYLONET_RESULTS_PATH}/${NEXUS_FILE}.output/$ERROR_FILENAME
+TABLE_OUT=${PHYLONET_RESULTS_PATH}/${NEXUS_FILE}.output/$TABLE_OUT_FILENAME
 
-mkdir ${NEXUS_FILE}.output
+mkdir ${PHYLONET_RESULTS_PATH}/${NEXUS_FILE}.output
 
-cp ${NEXUS_FILE} ./${NEXUS_FILE}.output/input.nex
+cp ${PHYLONET_RESULTS_PATH}/${NEXUS_FILE} ${PHYLONET_RESULTS_PATH}/${NEXUS_FILE}.output/input.nex
 
-java -jar $PHYLONET_PATH $NEXUS_FILE > $OUTPUT 2> $ERROR
+java -jar $PHYLONET_PATH ${PHYLONET_RESULTS_PATH}/${NEXUS_FILE} > $OUTPUT 2> $ERROR
 
 # Clip the phylonet output to the output table:
 # remove the first lines with info and everything after the summary line
@@ -43,4 +44,4 @@ cat $OUTPUT.clipped | tr -d " "  > $OUTPUT.clipped_buff
 mv $OUTPUT.clipped_buff $OUTPUT.clipped
 
 # Analyse all networks
-python phylonet_properties.py -f $OUTPUT.clipped -o $TABLE_OUT
+python ./network_properties/phylonet_properties.py -f $OUTPUT.clipped -o $TABLE_OUT
