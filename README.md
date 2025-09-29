@@ -4,7 +4,7 @@ Test phylonet sampling under uninformative information
 Main script is `generate_trees_phylonet.sh`
 First activate the conda environment.
 ```
-  mamba env update -f ./phylonet.conda-env.yaml
+  mamba env update -f ./envs/phylonet.yaml
   conda activate phylonet
 ```
 
